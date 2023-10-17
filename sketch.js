@@ -1,7 +1,7 @@
 let ball;
 let windD
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(800, 800);
 
   ball = new Particle();
 }
@@ -9,21 +9,12 @@ function setup() {
 
 function draw() {
   background(220);
-
-  let gravity = createVector(0, 1);
-  ball.addForce(gravity);
-  
-  if(mouseX > width/2){
-     windD = 1;
-  }
-  if(mouseX < width/2){
-     windD = -1;
-  }
-  let wind = createVector(windD, 0);
-  if(mouseIsPressed){
-    ball.addForce(wind);
-  }
-
   ball.update();
   ball.show();
+}
+
+function mouseClicked() {   
+  
+  ball.clike(mouseX,mouseY);
+  
 }
